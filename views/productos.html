@@ -2,42 +2,82 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-<section class="contacto fade-up">
-  <div class="contacto-container">
 
-    <div class="contacto-info">
-      <h2>Conoce Nuestras Ultimas Noticias</h2>
+<div class="search-container">
+  <input type="text" id="searchInput" placeholder="Buscar modelos..." />
+</div>
+
+<section class="contacto about" id="info">
+    <img src="../assets/bota_retro_blanco_rojo_niño.jpeg" alt="Fundación" class="zoom-img">
+    
+    <div class="about-text">
+    
+
+      <h3>Bota Nike Retro</h3>
+
       <p>
-        Acciones que generan impacto positivo en Colombia
+        Bota Nike Retro 1 para niños en 
+        Color Blanco Con Negro y Rojo 
       </p>
 
-      <div class="contact-card">
+      <br>
+      <p>
+      </p>
+    </div>
+    
+    <img src="../assets/campus_negro_colegial.jpeg" alt="Fundación" class="zoom-img">
+    <div class="about-text">
         
-        <div>
-          <h4></h4>
-          <p>   </p>
-        </div>
-      </div>
+      <h3>Campus Colegial</h3>
 
-      <div class="contact-card">
-        
-        <div>
-          <h4></h4>
-          <p></p>
-        </div>
-      </div>
+      <p>
+        Campus hecho en sintetico de alta calidad para niños y jovenes estudiantes 
+      </p>
 
-      <div class="contact-card">
-        
-        <div>
-          <h4></h4>
-          <p></p>
-        </div>
-      </div>
-
+      <br>
+      <p> 
+      </p>
     </div>
 
-  </div>
+    <img src="../assets/bota_retro_blanco_rosa_niño.jpeg" alt="Fundación" class="zoom-img">
+    
+    <div class="about-text">
+    
+
+      <h3>Bota Nike Retro</h3>
+
+      <p>
+        Bota Nike Retro 1 para niñas en 
+        Color Blanco Con Rosa y Morado 
+      </p>
+
+      <br>
+      <p>
+      </p>
+    </div>
+
+    <img src="../assets/guayo_azul.jpeg" alt="Fundación" class="zoom-img">
+    
+    <div class="about-text">
+
+      <h3>Guayo Azul</h3>
+
+      <p>
+        Guayo comodo y de Alta calidad ideal 
+        para juegos pesados y extensos 
+        (cocido para mayor durabilidad) 
+      </p>
+
+      <br>
+      <p>
+      </p>
+    </div>
+</section>
+
+<div id="modal" class="modal">
+  <img id="modal-img" src="" alt="">
+</div>
+
 </section>
 
 <style>
@@ -47,6 +87,16 @@ body{
     }
 
     @media(max-width:768px){
+        .about img{
+            width:100% !important;
+            border-radius:20px;
+            box-shadow:0 10px 20px rgba(0,0,0,0.15);
+        }
+        .about-text h3{
+            color:#dfdfdf;
+            margin-bottom:20px;
+            font-size:1.5rem !important;
+        }
 
         .contact-card{
             padding:10px 10px !important;
@@ -100,7 +150,7 @@ body{
 
     .contacto{
         background:
-            linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+            linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.795)),
             url('../assets/fondo_hero.png');
 
         background-size:cover;
@@ -191,6 +241,67 @@ body{
         color:#0b3d91;
     }
 
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:center;
+      
+    }
+
+    .about img{
+      width:40%;
+      border-radius:20px;
+      box-shadow:0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .about-text h3{
+      color:#dfdfdf;
+      margin-bottom:20px;
+      font-size:3rem;
+    }
+
+    .modal {
+        display: none;
+        position: fixed;
+        top: 0;
+        left: 0;
+        width: 100%;
+        height: 100%;
+        background: rgba(0,0,0,0.9);
+        justify-content: center;
+        align-items: center;
+        z-index: 1000;
+    }
+
+    .modal img {
+        max-width: 95%;
+        max-height: 95%;
+        border-radius: 10px;
+    }
+
+    .search-container {
+        display: flex;
+        justify-content: center;
+        margin: 20px 0;
+        
+    }
+
+    #searchInput {
+        width: 80%;
+        max-width: 400px;
+        padding: 12px 15px;
+        border-radius: 25px;
+        border: 1px solid #ccc;
+        outline: none;
+        font-size: 16px;
+        transition: 0.3s;
+    }
+
+    #searchInput:focus {
+        border-color: #000;
+        box-shadow: 0 0 8px rgba(0,0,0,0.2);
+    }
     /* ========================= */
     /* MOBILE */
     /* ========================= */
@@ -225,3 +336,40 @@ body{
     }
 
 </style>
+
+<script>
+const modal = document.getElementById("modal");
+const modalImg = document.getElementById("modal-img");
+
+const images = document.querySelectorAll(".zoom-img");
+
+images.forEach(img => {
+  img.addEventListener("click", () => {
+    modal.style.display = "flex";
+    modalImg.src = img.src;
+  });
+});
+
+modal.addEventListener("click", () => {
+  modal.style.display = "none";
+});
+</script>
+
+<script>
+const searchInput = document.getElementById("searchInput");
+const cards = document.querySelectorAll(".contact-card");
+
+searchInput.addEventListener("keyup", function () {
+  const value = this.value.toLowerCase();
+
+  cards.forEach(card => {
+    const title = card.querySelector("h3").textContent.toLowerCase();
+
+    if (title.includes(value)) {
+      card.style.display = "block";
+    } else {
+      card.style.display = "none";
+    }
+  });
+});
+</script>
