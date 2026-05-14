@@ -1,0 +1,571 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Creaciones Jr Sport</title>
+
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+
+  <style>
+    
+  @media(max-width:768px){
+    body{
+      overflow-x: hidden !important;
+    }
+    header::after{
+      background: linear-gradient(135deg, 
+          rgb(0, 0, 0) -40%,   /* El azul oscuro del inicio */
+          rgb(44, 44, 44) 100% /* El azul claro del final */
+      )!important;
+      
+      /* Esta máscara hace que el degradado anterior se desvanezca hacia abajo */
+      -webkit-mask-image: linear-gradient(to bottom, black, transparent)!important;
+      mask-image: linear-gradient(to bottom, black, transparent)!important;
+
+      pointer-events: none !important;
+    }
+    header h1{
+      font-size:1.1rem !important;
+      text-align: center !important;
+      
+    }
+    nav a{
+      font-size:0.8rem !important;
+      margin-left:8px!important;
+    }
+
+    .card{
+      background:white;
+      border-radius:15px;
+      padding:25px  !important;
+      box-shadow:0 5px 15px rgba(0,0,0,0.08);
+      transition:0.3s;
+    }
+
+    .card p{
+      font-size:0.7rem !important;
+    }
+
+  }
+
+    *{
+      margin:0;
+      padding:0;
+      box-sizing:border-box;
+      font-family:'Poppins', sans-serif;
+    }
+
+    body{
+      background: #cae6ffff;
+      color:#333;
+      line-height:1.6;
+      scroll-behavior:smooth;
+      overflow-x: hidden;
+    }
+
+    header {
+        position: fixed;
+        background: linear-gradient(135deg, #0e0e0e, #353535);
+        color: white;
+        padding: 10px 5%; 
+        display: flex;
+        justify-content: space-between;
+        align-items: center;
+        position: sticky;
+        top: 0;
+        z-index: 1000;
+        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
+        height: auto; 
+        min-height: 70px;
+        
+        overflow: visible;
+        
+        
+    }
+
+  header::after {
+    
+      content: "";
+      position: absolute;
+      bottom: -40px; 
+      left: 0;
+      width: 100%;
+      height: 40px; 
+      
+      /* El truco: Usamos el mismo ángulo (135deg) que tu header principal */
+      /* Pero jugamos con la opacidad para que se desvanezca hacia abajo */
+      background: linear-gradient(135deg, 
+          rgb(0, 0, 0) -15%,   /* El azul oscuro del inicio */
+          rgb(53, 53, 53) 100% /* El azul claro del final */
+      );
+      
+      /* Esta máscara hace que el degradado anterior se desvanezca hacia abajo */
+      -webkit-mask-image: linear-gradient(to bottom, black, transparent);
+      mask-image: linear-gradient(to bottom, black, transparent);
+
+      pointer-events: none;
+  }
+
+    .logotipo {
+        height: 85px; 
+        width: auto;
+        object-fit: contain;
+    }
+
+    header h1 {
+        font-size: 1.5rem; /* Un poco más pequeño para que no empuje el layout */
+        margin: 0;
+        padding: 0;
+    }
+
+    html{
+        scroll-behavior:smooth;
+        overflow-x: hidden;
+
+    }
+
+    section{
+        scroll-margin-top:80px;
+    }
+    nav a{
+      color:white;
+      text-decoration:none;
+      margin-left:20px;
+      font-weight:500;
+      transition:0.3s;
+    }
+
+    nav a:hover{
+      color:rgb(188, 188, 188);
+    }
+
+    .hero{
+      height:90vh;
+      
+      background:
+        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+        url('assets/fondo_hero.png');
+        
+      background-size:cover;
+      background-position:center;
+      display:flex;
+      justify-content:center;
+      align-items:center;
+      text-align:center;
+      color:white;
+      padding:20px;
+    }
+
+    .hero-content{
+      max-width:700px;
+    }
+
+    .hero h2{
+      font-size:3rem;
+      margin-bottom:20px;
+    }
+
+    .hero p{
+      font-size:1.1rem;
+      margin-bottom:30px;
+    }
+
+    .btn{
+      display:inline-block;
+      padding:14px 30px;
+      background:#ffd54f;
+      color:#222;
+      text-decoration:none;
+      border-radius:50px;
+      font-weight:600;
+      transition:0.3s;
+    }
+
+    .btn:hover{
+      background: rgba(226, 226, 226, 1);
+      transform:translateY(-3px);
+    }
+
+    section{
+      padding:80px 10%;
+    }
+
+    .section-title{
+      text-align:center;
+      margin-bottom:50px;
+    }
+
+    .section-title h3{
+      font-size:2.2rem;
+      color:#0b3d91;
+      margin-bottom:10px;
+    }
+
+    .cards{
+      display:grid;
+      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
+      gap:25px;
+    }
+
+    .card{
+      background:white;
+      border-radius:  15px;
+      background-size:cover;
+      background-position:center;
+      padding:30px;
+      
+      box-shadow:0 5px 15px rgba(0,0,0,0.08);
+      transition:0.3s;
+      text-align: center;
+    }
+
+    .card:hover{
+      transform:translateY(-8px);
+    }
+
+    .card h4{
+      color:#1e88e5;
+      margin-bottom:15px;
+    }
+
+    .about{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:center;
+    }
+
+    .about2{
+      display:grid;
+      grid-template-columns:1fr 1fr;
+      gap:40px;
+      align-items:center;
+      order: 1;
+    }
+
+    .about img{
+      width:100%;
+      border-radius:20px;
+      box-shadow:0 10px 20px rgba(0,0,0,0.15);
+    }
+
+    .about2 img{
+      width:100%;
+      border-radius:20px;
+      box-shadow:0 10px 20px rgba(0,0,0,0.15);
+      order: 2;
+    }
+
+    .about-text h3{
+      color:#0b3d91;
+      margin-bottom:20px;
+      font-size:2rem;
+    }
+
+    .about2-text h3{
+      color:#0b3d91;
+      margin-bottom:20px;
+      font-size:2rem;
+    }
+
+    .about {
+      opacity: 0;
+      transform: translateX(-100px); 
+      transition: all 0.8s ease;
+    }
+
+    
+    .about.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    .about2 {
+      opacity: 0;
+      transform: translateX(100px); 
+      transition: all 0.8s ease;
+    }
+
+    
+    .about2.show {
+      opacity: 1;
+      transform: translateX(0);
+    }
+
+    footer{
+      background:#0b3d91;
+      color:white;
+      text-align:center;
+      padding:25px;
+      margin-top:40px;
+    }
+
+    @media(max-width:900px){
+      .about{
+        grid-template-columns:1fr;
+      }
+
+    .about2{
+      grid-template-columns:1fr;
+    }
+
+    .about2 img{
+      order:1;
+    }
+
+    .about2 .about-text{
+      order:2;
+    }
+      .hero h2{
+        font-size:2.2rem;
+      }
+
+      header{
+        flex-direction:column;
+      }
+
+      nav{
+        margin-top:10px;
+      }
+    }
+  
+    .btn-whatsapp {
+    position: fixed;
+    width: 60px;
+    height: 60px;
+    bottom: 40px;
+    right: 40px;
+    background-color: #25d366;
+    color: #FFF;
+    border-radius: 50px;
+    text-align: center;
+    font-size: 30px;
+    box-shadow: 2px 2px 3px #999;
+    z-index: 100;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.3s ease;
+    }
+
+    .btn-whatsapp:hover {
+        background-color: #128c7e;
+        transform: scale(1.1);
+    }
+  </style>
+</head>
+<body>
+
+  <header>
+    <img class="logotipo" src="assets\logo.png" alt="logotipo">
+    <h1>Creaciones Jr Sport</h1>
+
+    <nav>
+      <a href="#info">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+      <a href="views\programas.php">Programas</a>
+    </nav>
+  </header>
+
+  <section class="hero">
+    <div class="hero-content">
+      <h2>Comodidad, velocidad y estilo en tus pies.</h2>
+      <p>
+        Encuentra guayos y calzado deportivo de alta calidad para entrenar, 
+        competir y vivir tu pasión al máximo.
+      </p>
+
+      <a href="views\noticias.php" class="btn">Conoce Más</a>
+    </div>
+  </section>
+
+  <a href="https://wa.me/573193180885?text=Hola,%20deseo%20más%20información%20sobre%20el%20Calzado%20Disponible" class="btn-whatsapp" target="_blank">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="50" height="50" alt="WhatsApp">
+  </a>
+
+  <section id="contacto">
+    <div class="section-title">
+      <h3>Contactanos</h3>
+      <p>Únete a nuestra misión de transformar vidas y crear un mejor mañana.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        <h4>Telefono</h4>
+        <p>
+          3193180885
+        </p>
+      </div>
+
+      <div class="card">
+        <h4>Correo Electronico</h4>
+        <p>
+         creacionesjrsport01@gmail.com
+        </p>
+      </div>
+
+    </div>
+  </section>
+
+  <section class="about" id="info">
+    <img src="assets\fondo_quines_somos.jpeg" alt="Fundación">
+
+    <div class="about-text">
+      <h3>¿Quiénes Somos?</h3>
+
+      <p>
+        Fundación Escalando Colombia es una organización comprometida con
+        el crecimiento integral de las comunidades, fomentando valores,
+        educación y oportunidades para construir un mejor futuro.
+      </p>
+
+      <br>
+
+      <p>
+        Nuestro objetivo es inspirar, apoyar y transformar vidas mediante
+        programas innovadores y trabajo colaborativo.
+      </p>
+    </div>
+  </section>
+
+  <section class="about2">
+    <img src="assets\fondo_vision.jpeg" alt="Fundación">
+    <div class="about-text">
+      
+      <h3>Nuestra Vision</h3>
+
+      <p>
+        Ser una fundación reconocida en Colombia por impulsar el cambio social a través del deporte, formando generaciones de niños y jóvenes líderes, comprometidos con su comunidad y capaces de alcanzar sus metas personales, académicas y deportivas, contribuyendo así a una sociedad más equitativa, positiva y llena de oportunidades.
+      </p>
+
+      <br>
+
+      <p>
+        Nuestro objetivo es inspirar, apoyar y transformar vidas mediante
+        programas innovadores y trabajo colaborativo.
+      </p>
+    </div>
+
+    
+  </section>
+
+  <section class="about">
+    <img src="assets\fondo_mision.jpeg" alt="Fundación">
+
+    <div class="about-text">
+      <h3>Nuestra Mision</h3>
+
+      <p>
+        La Fundación Escalando Colombia tiene como misión transformar la vida de niños, 
+        niñas y jóvenes mediante el deporte como herramienta de formación, inclusión y desarrollo integral, 
+        promoviendo valores como la disciplina, el respeto, el trabajo en equipo y la superación personal, 
+        para construir comunidades más saludables, seguras y con mayores oportunidades de futuro.
+      </p>
+
+      <br>
+
+      <p>
+        Nuestro objetivo es inspirar, apoyar y transformar vidas mediante
+        programas innovadores y trabajo colaborativo.
+      </p>
+    </div>
+  </section>
+
+  <section id="certificados">
+    <div class="section-title">
+      <h3>Nuestros niños</h3>
+      <p>Sembramos esperanza en el corazón de cada niño.</p>
+      
+    </div>
+
+    <div class="cards">
+      
+    </div>
+  </section>
+
+  <section id="certificados">
+    <div class="section-title">
+      <h3>Informacion Financiera</h3>
+      <p>Consulta nuestros estados financieros y certificados.</p>
+    </div>
+
+    <div class="cards">
+      <div class="card">
+        
+        <h4>CERTIFICADO ESPECIAL</h4>
+        <p>
+          
+        </p>
+        <a href="assets\20260220_Acta de constitucion y estatutos fundacion escalando colombia.pdf" class="btn">Ver Documento</a>
+      </div>
+
+      <div class="card">
+        
+        <h4>ACTA DE AUTORIZACION</h4>
+        <p>
+          
+        </p>
+        <a href="assets\20260331_Acta de autorizacion FUNDACION ESCALANDO COLOMBIA.pdf" class="btn">Ver Documento</a>
+      </div>
+
+      <div class="card">
+        
+        <h4>CERTIFICACION DE ANTECEDENTES</h4>
+        <p>
+          
+        </p>
+        <a href="assets\20260223_Certificacion de antecedentes judiciales fundacion escalando colombia.pdf" class="btn">Ver Documento</a>
+      </div>
+      
+      <div class="card">
+        
+        <h4>REPRESENTACIÓN LEGAL</h4>
+        <p>
+          
+        </p>
+        <a href="assets\20260508_Camara de comercio - Fundacion escalando colombia.pdf  " class="btn">Ver Documento</a>
+      </div>
+
+ 
+      <div class="card">
+        
+        <h4>BALANCE INICIAL</h4>
+        <p>
+          
+        </p>
+        <a href="assets\2025_BALANCE INICIAL FUNDACION ESCALANDO (2).pdf" class="btn">Ver Documento</a>
+      </div>
+    </div>
+  </section>
+
+  <footer>
+    <p>© 2026 Fundación Escalando Colombia - Todos los derechos reservados</p>
+  </footer>
+
+  <script>
+  const sections = document.querySelectorAll('.about , .about2');
+
+  const observer = new IntersectionObserver((entries) => {
+    entries.forEach((entry) => {
+
+      if (entry.isIntersecting) {
+        entry.target.classList.add('show');
+      } else {
+        entry.target.classList.remove('show');
+      }
+
+    });
+  }, {
+    threshold: 0.2
+  });
+
+  sections.forEach((section) => {
+    observer.observe(section);
+  });
+  </script>
+
+</body>
+</html>

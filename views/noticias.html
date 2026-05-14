@@ -1,0 +1,227 @@
+<head>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
+</head>
+<section class="contacto fade-up">
+  <div class="contacto-container">
+
+    <div class="contacto-info">
+      <h2>Conoce Nuestras Ultimas Noticias</h2>
+      <p>
+        Acciones que generan impacto positivo en Colombia
+      </p>
+
+      <div class="contact-card">
+        
+        <div>
+          <h4></h4>
+          <p>   </p>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        
+        <div>
+          <h4></h4>
+          <p></p>
+        </div>
+      </div>
+
+      <div class="contact-card">
+        
+        <div>
+          <h4></h4>
+          <p></p>
+        </div>
+      </div>
+
+    </div>
+
+  </div>
+</section>
+
+<style>
+body{
+    margin:0;
+    font-family:'Poppins', sans-serif;
+    }
+
+    @media(max-width:768px){
+
+        .contact-card{
+            padding:10px 10px !important;
+            gap:6px !important;
+        }
+
+        .contact-card h4{
+            font-size:1rem;
+        }
+
+        .contact-card p{
+            font-size:0.82rem !important;
+            line-height:1.3;
+            margin:0;
+
+            word-break:break-word;
+            overflow-wrap:break-word;
+        }
+
+        .contact-card div p{
+            font-size:0.82rem !important;
+        }
+
+        .icon{
+            width:50px;
+            height:50px;
+            min-width:50px;
+            font-size:1.2rem;
+        }
+    }
+    .fade-up{
+        opacity:0;
+        transform:translateY(50px) scale(0.95);
+
+        animation:fadeUp 1.2s ease forwards;
+        }
+
+        @keyframes fadeUp{
+        0%{
+            opacity:0;
+            transform:translateY(50px) scale(0.95);
+            filter:blur(5px);
+        }
+
+        100%{
+            opacity:1;
+            transform:translateY(0) scale(1);
+            filter:blur(0);
+        }
+    }
+
+    .contacto{
+        background:
+            linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
+            url('../assets/fondo_hero.png');
+
+        background-size:cover;
+        background-position:center;
+
+        padding:35px 20px;
+        color:white;
+
+        min-height:90vh;
+        
+        display:flex;
+        
+        align-items:center;
+        justify-content:center;
+        
+    }
+
+    .contacto-container {
+        width: 100%;
+        max-width: 1200px; /* Aumentado de 600px a 1200px */
+    }
+
+    /* 2. El contenedor de la info ahora distribuirá las tarjetas */
+    .contacto-info {
+        background: rgba(255, 255, 255, 0.08);
+        backdrop-filter: blur(10px);
+        border-radius: 20px;
+        padding: 40px;
+        box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+        
+        /* Agregamos esto para alinear las tarjetas */
+        display: flex;
+        flex-wrap: wrap; /* Para que sea responsivo en móviles */
+        gap: 20px;
+        justify-content: center;
+    }
+
+    .contacto-info h4{
+        text-align: center;
+        
+    } 
+    .contacto-info p {
+        
+        width: 100%;
+        text-align: center;
+    }
+
+    /* 4. Ajuste final de las tarjetas */
+    .contact-card {
+        display: flex;
+        align-items: center;
+        gap: 20px;
+        background: white;
+        color: #333;
+        padding: 20px;
+        border-radius: 15px;
+        
+        /* Importante: quitamos el margin-bottom y definimos un tamaño */
+        margin-bottom: 0; 
+        flex: 1 1 300px; /* Crecen igual, pero base de 300px */
+        max-width: 350px;
+        transition: 0.3s;
+    }
+
+    .contact-card:hover{
+        transform:translateY(-5px);
+        box-shadow:0 8px 20px rgba(0,0,0,0.15);
+    }
+
+    .icon{
+        width:60px;
+        height:60px;
+        min-width:60px;
+
+        background:#1e88e5;
+        color:white;
+
+        display:flex;
+        align-items:center;
+        justify-content:center;
+
+        border-radius:50%;
+        font-size:1.5rem;
+    }
+
+    .contact-card h4{
+        margin:0 0 5px;
+        color:#0b3d91;
+    }
+
+    /* ========================= */
+    /* MOBILE */
+    /* ========================= */
+
+    @media(max-width:768px){
+
+        .contacto{
+            padding:20px 15px;
+        }
+
+        .contacto-info{
+            padding:25px;
+        }
+
+        .contacto-info h2{
+            font-size:2rem;
+            text-align:center;
+        }
+
+        .contacto-info p{
+            text-align:center;
+        }
+
+        .contact-card{
+            flex-direction: row;
+            text-align:center;
+        }
+
+        .icon{
+            margin-bottom:10px;
+        }
+    }
+
+</style>
