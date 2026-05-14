@@ -2,10 +2,11 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 </head>
-
-<div class="search-container">
-  <input type="text" id="searchInput" placeholder="Buscar modelos..." />
-</div>
+<header>
+    <div class="search-container">
+        <input type="text" id="searchInput" placeholder="Buscar modelos..." />
+    </div>
+</header>
 
 <section class="contacto about" id="info">
     <img src="../assets/bota_retro_blanco_rojo_niño.jpeg" alt="Fundación" class="zoom-img">
@@ -244,7 +245,7 @@ body{
     .about{
       display:grid;
       grid-template-columns:1fr 1fr;
-      gap:40px;
+      gap:10px;
       align-items:center;
       
     }
@@ -283,7 +284,13 @@ body{
     .search-container {
         display: flex;
         justify-content: center;
-        margin: 20px 0;
+        padding: 20px 0;
+        background-color: #000;
+        background: linear-gradient(135deg, 
+          rgb(153, 153, 153) -15%,   /* El azul oscuro del inicio */
+          rgb(77, 77, 77) 100% /* El azul claro del final */
+      );
+      
         
     }
 
@@ -357,18 +364,31 @@ modal.addEventListener("click", () => {
 
 <script>
 const searchInput = document.getElementById("searchInput");
-const cards = document.querySelectorAll(".contact-card");
 
-searchInput.addEventListener("keyup", function () {
+// cada producto real es el bloque "about-text"
+const items = document.querySelectorAll(".about-text");
+
+searchInput.addEventListener("input", function () {
   const value = this.value.toLowerCase();
 
-  cards.forEach(card => {
-    const title = card.querySelector("h3").textContent.toLowerCase();
+  items.forEach(item => {
+    const title = item.querySelector("h3").textContent.toLowerCase();
+
+    // ocultar o mostrar TODO el bloque (imagen + texto)
+    const wrapper = item.previousElementSibling?.classList.contains("zoom-img")
+      ? item.parentElement
+      : item;
 
     if (title.includes(value)) {
-      card.style.display = "block";
+      item.style.display = "block";
+      if (item.previousElementSibling) {
+        item.previousElementSibling.style.display = "block";
+      }
     } else {
-      card.style.display = "none";
+      item.style.display = "none";
+      if (item.previousElementSibling) {
+        item.previousElementSibling.style.display = "none";
+      }
     }
   });
 });
