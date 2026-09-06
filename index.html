@@ -10,363 +10,319 @@
   <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600;700&display=swap" rel="stylesheet">
 
   <style>
-    
-  @media(max-width:768px){
-    body{
-      overflow-x: hidden !important;
-    }
-    header::after{
-      background: linear-gradient(135deg, 
-          rgb(0, 0, 0) -40%,   /* El azul oscuro del inicio */
-          rgb(44, 44, 44) 100% /* El azul claro del final */
-      )!important;
-      
-      /* Esta máscara hace que el degradado anterior se desvanezca hacia abajo */
-      -webkit-mask-image: linear-gradient(to bottom, black, transparent)!important;
-      mask-image: linear-gradient(to bottom, black, transparent)!important;
-
-      pointer-events: none !important;
-    }
-    header h1{
-      font-size:1.1rem !important;
-      text-align: center !important;
-      
-    }
-    nav a{
-      font-size:0.8rem !important;
-      margin-left:8px!important;
+    * {
+      margin: 0;
+      padding: 0;
+      box-sizing: border-box;
+      font-family: 'Poppins', sans-serif;
     }
 
-    .card{
-      background:white;
-      border-radius:15px;
-      padding:25px  !important;
-      box-shadow:0 5px 15px rgba(0,0,0,0.08);
-      transition:0.3s;
-    }
-
-    .card p{
-      font-size:0.7rem !important;
-    }
-
+  @font-face {
+    font-family: 'Play Pretend';
+    src: url('assets/fonts/Play Pretend.otf') format('opentype');
+    font-weight: normal;
+    font-style: normal;
   }
 
-    *{
-      margin:0;
-      padding:0;
-      box-sizing:border-box;
-      font-family:'Poppins', sans-serif;
-    }
-
-    body{
-      background: rgb(43, 43, 43);
-      color:#333;
-      line-height:1.6;
-      scroll-behavior:smooth;
+    body {
+      background: #ffffff;
+      color: #000000;
+      line-height: 1.6;
+      scroll-behavior: smooth;
       overflow-x: hidden;
     }
 
+    /* Header y Navegación */
     header {
-        position: fixed;
-        background: linear-gradient(135deg, #0e0e0e, #202020);
-        color: white;
-        padding: 10px 5%; 
-        display: flex;
-        justify-content: space-between;
-        align-items: center;
-        position: sticky;
-        top: 0;
-        z-index: 1000;
-        box-shadow: 0 2px 10px rgba(0,0,0,0.1);
-        height: auto; 
-        min-height: 70px;
-        
-        overflow: visible;
-        
-        
+      position: sticky;
+      top: 0;
+      background: #ffffff;
+      color: #000000;
+      padding: 15px 5%;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+      z-index: 1000;
+      border-bottom: 1px solid #eaeaea;
+      box-shadow: 0 2px 10px rgba(0,0,0,0.05);
     }
 
-  header::after {
-    
-      content: "";
-      position: absolute;
-      bottom: -40px; 
-      left: 0;
-      width: 100%;
-      height: 40px; 
-      
-      /* El truco: Usamos el mismo ángulo (135deg) que tu header principal */
-      /* Pero jugamos con la opacidad para que se desvanezca hacia abajo */
-      background: linear-gradient(135deg, 
-          rgb(0, 0, 0) -15%,   /* El azul oscuro del inicio */
-          rgb(53, 53, 53) 100% /* El azul claro del final */
-      );
-      
-      /* Esta máscara hace que el degradado anterior se desvanezca hacia abajo */
-      -webkit-mask-image: linear-gradient(to bottom, black, transparent);
-      mask-image: linear-gradient(to bottom, black, transparent);
-
-      pointer-events: none;
-  }
+    .logo-container {
+      display: flex;
+      align-items: center;
+      gap: 5px;
+    }
 
     .logotipo {
-        height: 85px; 
-        width: auto;
-        object-fit: contain;
+      height: 40px;
+      width: auto;
+      object-fit: contain;
     }
 
-    header h1 {
-        font-size: 1.5rem; /* Un poco más pequeño para que no empuje el layout */
-        margin: 0;
-        padding: 0;
+  header h1 {
+      font-family: 'Play Pretend', sans-serif;
+      font-size: 1.15rem; /* Puedes ajustar el tamaño si la fuente se ve muy grande o pequeña */
+      font-weight: normal;
+      color: #000000;
+  }
+
+    nav {
+      display: flex;
+      gap: 20px;
     }
 
-    html{
-        scroll-behavior:smooth;
-        overflow-x: hidden;
-
+    nav a {
+      color: #000000;
+      text-decoration: none;
+      font-weight: 500;
+      transition: 0.3s;
     }
 
-    section{
-        scroll-margin-top:80px;
-    }
-    nav a{
-      color:white;
-      text-decoration:none;
-      margin-left:20px;
-      font-weight:500;
-      transition:0.3s;
+    nav a:hover {
+      color: #555555;
     }
 
-    nav a:hover{
-      color:rgb(188, 188, 188);
+    /* Botón Menú Hamburguesa Móvil */
+    .menu-toggle {
+      display: none;
+      flex-direction: column;
+      cursor: pointer;
+      gap: 5px;
+      background: none;
+      border: none;
     }
 
-    .hero{
-      height:90vh;
-      
-      background:
-        linear-gradient(rgba(0,0,0,0.5), rgba(0,0,0,0.5)),
-        url('assets/fondo_hero.png');
-        
-      background-size:cover;
-      background-position:center;
-      display:flex;
-      justify-content:center;
-      align-items:center;
-      text-align:center;
-      color:white;
-      padding:20px;
+    .menu-toggle span {
+      width: 25px;
+      height: 3px;
+      background-color: #000000;
+      border-radius: 2px;
+      transition: 0.3s;
     }
 
-    .hero-content{
-      max-width:700px;
+    /* Carrusel de Calzado */
+    .carousel-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: 40px auto;
+      overflow: hidden;
+      border-radius: 15px;
+      box-shadow: 0 10px 25px rgba(0,0,0,0.1);
     }
 
-    .hero h2{
-      font-size:3rem;
-      margin-bottom:20px;
+    .carousel-track {
+      display: flex;
+      width: 100%;
+      transition: transform 0.5s ease-in-out;
     }
 
-    .hero p{
-      font-size:1.1rem;
-      margin-bottom:30px;
+    .carousel-slide {
+      min-width: 100%;
+      box-sizing: border-box;
     }
 
-    .btn{
-      display:inline-block;
-      padding:14px 30px;
-      background:#7dff6c;
-      color:#222;
-      text-decoration:none;
-      border-radius:50px;
-      font-weight:600;
-      transition:0.3s;
+    .carousel-slide img {
+      width: 100%;
+      height: 400px;
+      object-fit: cover;
+      display: block;
     }
 
-    .btn:hover{
-      background: rgba(226, 226, 226, 1);
-      transform:translateY(-3px);
+    /* Hero Section */
+    .hero {
+      padding: 60px 20px;
+      text-align: center;
+      background: #fafafa;
     }
 
-    section{
-      padding:80px 10%;
+    .hero-content {
+      max-width: 700px;
+      margin: 0 auto;
     }
 
-    .section-title{
-      text-align:center;
-      margin-bottom:50px;
+    .hero h2 {
+      font-size: 2.5rem;
+      margin-bottom: 20px;
+      color: #000000;
     }
 
-    .section-title h3{
-      font-size:2.2rem;
-      color:#ebebeb;
-      margin-bottom:10px;
+    .hero p {
+      font-size: 1.1rem;
+      margin-bottom: 30px;
+      color: #444444;
     }
 
-    .cards{
-      display:grid;
-      grid-template-columns:repeat(auto-fit, minmax(250px,1fr));
-      gap:25px;
+    .btn {
+      display: inline-block;
+      padding: 14px 30px;
+      background: #000000;
+      color: #ffffff;
+      text-decoration: none;
+      border-radius: 50px;
+      font-weight: 600;
+      transition: 0.3s;
     }
 
-    .card{
-      background:white;
-      border-radius:  15px;
-      background-size:cover;
-      background-position:center;
-      padding:30px;
-      
-      box-shadow:0 5px 15px rgba(0,0,0,0.08);
-      transition:0.3s;
+    .btn:hover {
+      background: #333333;
+      transform: translateY(-3px);
+    }
+
+    /* Secciones y Cards */
+    section {
+      padding: 60px 10%;
+    }
+
+    .section-title {
+      text-align: center;
+      margin-bottom: 40px;
+    }
+
+    .section-title h3 {
+      font-size: 2rem;
+      color: #000000;
+      margin-bottom: 10px;
+    }
+
+    .cards {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+    }
+
+    .card {
+      background: #ffffff;
+      border: 1px solid #e0e0e0;
+      border-radius: 15px;
+      padding: 30px;
+      box-shadow: 0 5px 15px rgba(0,0,0,0.03);
+      transition: 0.3s;
       text-align: center;
     }
 
-    .card:hover{
-      transform:translateY(-8px);
+    .card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 8px 25px rgba(0,0,0,0.08);
     }
 
-    .card h4{
-      color:#1e88e5;
-      margin-bottom:15px;
+    .card h4 {
+      color: #000000;
+      font-size: 1.2rem;
+      margin-bottom: 15px;
     }
 
-    .about{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-      align-items:center;
+    .card p {
+      color: #555555;
+      font-size: 0.95rem;
     }
 
-    .about2{
-      display:grid;
-      grid-template-columns:1fr 1fr;
-      gap:40px;
-      align-items:center;
-      order: 1;
-    }
-
-    .about img{
-      width:100%;
-      border-radius:20px;
-      box-shadow:0 10px 20px rgba(0,0,0,0.15);
-    }
-
-    .about2 img{
-      width:100%;
-      border-radius:20px;
-      box-shadow:0 10px 20px rgba(0,0,0,0.15);
-      order: 2;
-    }
-
-    .about-text h3{
-      color:#0b3d91;
-      margin-bottom:20px;
-      font-size:2rem;
-    }
-
-    .about2-text h3{
-      color:#0b3d91;
-      margin-bottom:20px;
-      font-size:2rem;
-    }
-
-    .about {
-      opacity: 0;
-      transform: translateX(-100px); 
-      transition: all 0.8s ease;
-    }
-
-    
-    .about.show {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    .about2 {
-      opacity: 0;
-      transform: translateX(100px); 
-      transition: all 0.8s ease;
-    }
-
-    
-    .contacto.show {
-      opacity: 1;
-      transform: translateX(0);
-    }
-
-    footer{
-      background:#5e5e5e;
-      color:white;
-      text-align:center;
-      padding:25px;
-      margin-top:40px;
-    }
-    .p_contacto{
+    /* Footer */
+    footer {
+      background: #000000;
       color: #ffffff;
+      text-align: center;
+      padding: 25px;
+      margin-top: 40px;
     }
 
-    @media(max-width:900px){
-      .about{
-        grid-template-columns:1fr;
-      }
-
-    .about2{
-      grid-template-columns:1fr;
-    }
-
-    .about2 img{
-      order:1;
-    }
-
-    .about2 .about-text{
-      order:2;
-    }
-      .hero h2{
-        font-size:2.2rem;
-      }
-
-      header{
-        flex-direction:column;
-      }
-
-      nav{
-        margin-top:10px;
-      }
-    }
-  
+    /* Botón WhatsApp */
     .btn-whatsapp {
-    position: fixed;
-    width: 60px;
-    height: 60px;
-    bottom: 40px;
-    right: 40px;
-    background-color: #25d366;
-    color: #FFF;
-    border-radius: 50px;
-    text-align: center;
-    font-size: 30px;
-    box-shadow: 2px 2px 3px #999;
-    z-index: 100;
-    display: flex;
-    align-items: center;
-    justify-content: center;
-    transition: all 0.3s ease;
+      position: fixed;
+      width: 60px;
+      height: 60px;
+      bottom: 30px;
+      right: 30px;
+      background-color: #25d366;
+      color: #FFF;
+      border-radius: 50px;
+      text-align: center;
+      font-size: 30px;
+      box-shadow: 2px 2px 8px rgba(0,0,0,0.2);
+      z-index: 100;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      transition: all 0.3s ease;
     }
 
     .btn-whatsapp:hover {
-        background-color: #128c7e;
-        transform: scale(1.1);
+      background-color: #128c7e;
+      transform: scale(1.1);
+    }
+
+    /* Media Queries para Móviles */
+    @media(max-width: 768px) {
+      .menu-toggle {
+        display: flex;
+      }
+
+      nav {
+        position: absolute;
+        top: 100%;
+        left: 0;
+        width: 100%;
+        background: #ffffff;
+        flex-direction: column;
+        align-items: center;
+        max-height: 0;
+        overflow: hidden;
+        transition: max-height 0.3s ease-in-out;
+        border-bottom: 1px solid #eaeaea;
+      }
+
+      nav.active {
+        max-height: 200px;
+        padding: 20px 0;
+      }
+
+      nav a {
+        margin: 10px 0;
+        font-size: 1rem;
+      }
+
+      .carousel-slide img {
+        height: 250px;
+      }
+
+      .hero h2 {
+        font-size: 1.8rem;
+      }
     }
   </style>
 </head>
 <body>
 
   <header>
-    <img class="logotipo" src="assets\logotipo.png" alt="logotipo">
-    <h1>Creaciones Jr Sport®</h1>
-
+    <div class="logo-container">
+      <img class="logotipo" src="assets/logotipo.png" alt="logotipo">
+      <h1>Creaciones Jr Sport</h1>
+    </div>
+    <button class="menu-toggle" id="menuToggle" aria-label="Abrir Menú">
+      <span></span>
+      <span></span>
+      <span></span>
+    </button>
+    <nav id="navMenu">
+      <a href="#">Inicio</a>
+      <a href="#info">Nosotros</a>
+      <a href="#contacto">Contacto</a>
+    </nav>
   </header>
+
+  <div class="carousel-container">
+    <div class="carousel-track" id="carouselTrack">
+      <div class="carousel-slide"><img src="assets/vans_gris_negro.png" alt="Calzado 1"></div>
+      <div class="carousel-slide"><img src="assets/vans_negr_blanco.png" alt="Calzado 2"></div>
+      <div class="carousel-slide"><img src="assets/vans_blanco_negro.png" alt="Calzado 3"></div>
+      <div class="carousel-slide"><img src="assets/vans_negro_gris_modelo2.png" alt="Calzado 4"></div>
+      <div class="carousel-slide"><img src="assets/vans_blanco_negro_modelo2.png" alt="Calzado 5"></div>
+      <div class="carousel-slide"><img src="assets/campus_negro.png" alt="Calzado 6"></div>
+      <div class="carousel-slide"><img src="assets/guayo_azul_fucsia.png" alt="Calzado 7"></div>
+      <div class="carousel-slide"><img src="assets/guayo_azul_verde.png" alt="Calzado 8"></div>
+      <div class="carousel-slide"><img src="assets/guayo_naranja_azul.png" alt="Calzado 9"></div>
+    </div>
+  </div>
 
   <section class="hero">
     <div class="hero-content">
@@ -375,68 +331,102 @@
         Encuentra guayos y calzado deportivo de alta calidad para entrenar, 
         competir y vivir tu pasión al máximo.
       </p>
-
-      <a href="views\productos.html" class="btn">Ver Productos</a>
+      <a href="https://wa.me/573193180885?text=Hola,%20deseo%20ver%20el%20catálogo%20de%20productos" class="btn" target="_blank">Ver Productos</a>
     </div>
   </section>
 
-  <a href="https://wa.me/573193180885?text=Hola,%20deseo%20más%20información%20sobre%20el%20Calzado%20Disponible" class="btn-whatsapp" target="_blank">
-    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="50" height="50" alt="WhatsApp">
-  </a>
-
-  <section id="contacto">
+  <section id="info">
     <div class="section-title">
-      <h3>Contactanos</h3>
-      <p class="p_contacto">Pregunta Precios, Te Cotizaremos al mayor y al detal 
-        nuestros Productos
-      </p>
+      <h3>¿Por qué elegirnos?</h3>
+      <p>Conoce nuestras políticas de venta y distribución</p>
     </div>
 
     <div class="cards">
       <div class="card">
-        <h4>Telefono</h4>
-        <p>
-          3193180885 -
-          3219723080
-        </p>
+        <h4>Precios al Mayor</h4>
+        <p>Vendemos con precios ajustados y competitivos ideales para tu negocio al mayor.</p>
       </div>
 
       <div class="card">
-        <h4>Correo Electronico</h4>
-        <p>
-         creacionesjrsport01@gmail.com
-        </p>
+        <h4>Ventas por Docena</h4>
+        <p>Nuestros pedidos al mayor deben superar las 12 unidades para aplicar a tarifas especiales.</p>
       </div>
 
+      <div class="card">
+        <h4>Envíos Garantizados</h4>
+        <p>Envíos a toda la ciudad en el momento. ¡Pronto estaremos en todo el país!</p>
+      </div>
     </div>
   </section>
 
+  <section id="contacto">
+    <div class="section-title">
+      <h3>Contáctanos</h3>
+      <p>Pregunta precios, te cotizaremos al mayor y al detal nuestros productos</p>
+    </div>
 
+    <div class="cards">
+      <div class="card">
+        <h4>Teléfono</h4>
+        <p>319 318 0885 - 321 972 3080</p>
+      </div>
+
+      <div class="card">
+        <h4>Correo Electrónico</h4>
+        <p>creacionesjrsport01@gmail.com</p>
+      </div>
+    </div>
+  </section>
 
   <footer>
     <p>© 2026 Creaciones Jr Sport - Todos los derechos reservados</p>
   </footer>
 
+  <a href="https://wa.me/573193180885?text=Hola,%20deseo%20más%20información%20sobre%20el%20Calzado%20Disponible" class="btn-whatsapp" target="_blank" aria-label="WhatsApp">
+    <img src="https://upload.wikimedia.org/wikipedia/commons/6/6b/WhatsApp.svg" width="35" height="35" alt="WhatsApp">
+  </a>
+
   <script>
-  const sections = document.querySelectorAll('.about , .about2');
+    // Menú desplegable móvil (Hamburguesa)
+    const menuToggle = document.getElementById('menuToggle');
+    const navMenu = document.getElementById('navMenu');
 
-  const observer = new IntersectionObserver((entries) => {
-    entries.forEach((entry) => {
+    menuToggle.addEventListener('click', () => {
+      navMenu.classList.toggle('active');
+    });
 
-      if (entry.isIntersecting) {
-        entry.target.classList.add('show');
-      } else {
-        entry.target.classList.remove('show');
+    // Carrusel Infinito Real sin salto de retroceso
+    const track = document.getElementById('carouselTrack');
+    const originalSlides = Array.from(track.children);
+    
+    // Duplicamos la primera diapositiva y la agregamos al final para suavizar el bucle
+    const firstClone = originalSlides[0].cloneNode(true);
+    track.appendChild(firstClone);
+    
+    const allSlides = Array.from(track.children);
+    let currentIndex = 0;
+    const totalOriginalSlides = originalSlides.length;
+
+    function moveCarousel() {
+      currentIndex++;
+      track.style.transition = 'transform 0.5s ease-in-out';
+      track.style.transform = `translateX(-${currentIndex * 100}%)`;
+
+      // Si llegamos a la copia de la primera imagen
+      if (currentIndex === totalOriginalSlides) {
+        setTimeout(() => {
+          track.style.transition = 'none'; // Quitamos la animación momentáneamente
+          currentIndex = 0;
+          track.style.transform = `translateX(0px)`; // Regresamos al inicio de forma invisible
+        }, 500); // Coincide con los 0.5s de la transición CSS
       }
 
-    });
-  }, {
-    threshold: 0.2
-  });
+      // Espera 2 segundos antes de iniciar el siguiente movimiento
+      setTimeout(moveCarousel, 2500); // 2000ms de pausa + 500ms de animación
+    }
 
-  sections.forEach((section) => {
-    observer.observe(section);
-  });
+    // Iniciar ciclo de carrusel
+    setTimeout(moveCarousel, 2500);
   </script>
 
 </body>
