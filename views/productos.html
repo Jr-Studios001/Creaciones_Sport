@@ -9,22 +9,117 @@
         <input type="text" id="searchInput" placeholder="Buscar modelos..." />
         
     </div>
-    <nav>
-      <a href="productos.html">Calzado</a>
-      <a href="correas.html">Correas</a>
-      <a href="capelladas.html">Capelladas</a>
-    </nav>
+
 </header>
 
 <section class="contacto about" id="info">
     
+
+    <img src="../assets/vans_gris_negro.png" alt="Fundación" class="zoom-img">
+    <div class="about-text">
+        
+      <h3>Vans negros-Gris</h3>
+
+      <p>
+        Vans negros con detalles en Gris Cocidos para mayor durabilidad  
+      </p>
+
+      <br>
+      <p> 
+      </p>
+    </div>
+
+    <img src="../assets/vans_blanco_negro_modelo2.png" alt="Fundación" class="zoom-img">
+    <div class="about-text">
+        
+      <h3>Vans negros-Blanco</h3>
+
+      <p>
+        Vans negros con detalles en Blanco Cocidos para mayor durabilidad  
+      </p>
+
+      <br>
+      <p> 
+      </p>
+    </div>
+
+    <img src="../assets/vans_colegial_blanca.png" alt="Fundación" class="zoom-img">
+    <div class="about-text">
+        
+      <h3>Vans Blancos Colegial</h3>
+
+      <p>
+        Vans Blancos en Material Sintentico Pensado en Soportar el dia a dia Escolar Cocidos para mayor durabilidad  
+      </p>
+
+      <br>
+      <p> 
+      </p>
+    </div>
+  
+    <img src="../assets/for_one_negro.png" alt="Fundación" class="zoom-img">
+    <div class="about-text">
+        
+      <h3>Nike For One Negros Colegial </h3>
+
+      <p>
+        Nikes For One en Negro, en Material Sintentico Pensado en Soportar el dia a dia Escolar Cocidos para mayor durabilidad  
+      </p>
+
+      <br>
+      <p> 
+      </p>
+    </div>
+
+    <img src="../assets/vans_colegial_negro.png" alt="Fundación" class="zoom-img">
+    <div class="about-text">
+        
+      <h3>Vans Negros Colegial</h3>
+
+      <p>
+        Vans Negros en Material Sintentico Pensado en Soportar el dia a dia Escolar Cocidos para mayor durabilidad  
+      </p>
+
+      <br>
+      <p> 
+      </p>
+    </div>
+
+    <img src="../assets/for_one_blanco.png" alt="Fundación" class="zoom-img">
+    <div class="about-text">
+        
+      <h3>Nike For One Blancos Colegial </h3>
+
+      <p>
+        Nikes For One en Blanco, en Material Sintentico Pensado en Soportar el dia a dia Escolar Cocidos para mayor durabilidad  
+      </p>
+
+      <br>
+      <p> 
+      </p>
+    </div>
+
+    <img src="../assets/campus_negro.png" alt="Fundación" class="zoom-img">
+    <div class="about-text">
+        
+      <h3>Adidas Campus Negro con Blanco </h3>
+
+      <p>
+        Adidas Campus Negro con detalles en blanco Cocidos para mayor durabilidad 
+      </p>
+
+      <br>
+      <p> 
+      </p>
+    </div>
+
     <img src="../assets/campus_negro_colegial.jpeg" alt="Fundación" class="zoom-img">
     <div class="about-text">
         
-      <h3>Campus Colegial</h3>
+      <h3>Adidas Campus Colegial</h3>
 
       <p>
-        Campus hecho en sintetico de alta calidad para niños y jovenes estudiantes 
+        Adidas Campus hecho en sintetico de alta calidad para niños y jovenes estudiantes 
       </p>
 
       <br>
@@ -141,11 +236,21 @@
 </section>
 
 <style>
+
+@font-face {
+  font-family: 'Play Pretend';
+  src: url('../assets/fonts/TT Mussels Trial Bold Italic.otf') format('opentype');
+  font-weight: normal;
+  font-style: normal;
+}
 body{
     margin:0;
-    font-family:'Poppins', sans-serif;
+    font-family: 'Poppins', sans-serif;
+    line-height: 1.6;
     }
 
+
+    
     @media(max-width:768px){
             header {
                 flex-direction: column;
@@ -154,7 +259,9 @@ body{
                 padding: 15px 5%;
                 gap: 10px;
             }
-
+            header h1, .hero h2, .section-title h3, h3,  .card h4 {
+              font-family: 'Play Pretend', sans-serif;
+            }
             .search-container {
                 width: 100%;
                 padding: 10px 0;
@@ -186,6 +293,12 @@ body{
             color:#dfdfdf;
             margin-bottom:20px;
             font-size:1.5rem !important;
+        }
+
+        .about-text p{
+            color:#000000;
+            margin-bottom:20px;
+            font-size:0.7rem !important;
         }
 
         .contact-card{
@@ -240,14 +353,14 @@ body{
 
     .contacto{
         background:
-            linear-gradient(rgba(0,0,0,0.5), rgba(0, 0, 0, 0.795)),
+            linear-gradient(rgb(255, 255, 255), rgb(255, 255, 255)),
             url('../assets/fondo_hero.png');
 
         background-size:cover;
         background-position:center;
 
         padding:35px 20px;
-        color:white;
+        color:rgb(0, 0, 0);
 
         min-height:90vh;
         
@@ -346,7 +459,7 @@ body{
     }
 
     .about-text h3{
-      color:#dfdfdf;
+      color:#020202;
       margin-bottom:20px;
       font-size:3rem;
     }
